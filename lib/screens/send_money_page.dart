@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hellomoney/screens/send_money_to_recepient.dart';
-import 'package:hellomoney/wid/payment_option_card_widget.dart';
 import 'package:hellomoney/widgets/extension.dart';
+import 'package:hellomoney/widgets/payment_option_card_widget.dart';
 
 class SendMoneyPage extends StatefulWidget {
   const SendMoneyPage({super.key});
@@ -80,27 +80,21 @@ class _SendMoneyPageState extends State<SendMoneyPage> {
                         "Send money to your friends or family overseas effortlessly! Choose this option for quick and reliable international transfers.",
                     imagePath: "assets/png/international 1.png",
 
-                    onTap: () {
-                      //  international payment tap
-                    },
+                    onTap: () {},
                   ),
                   PaymentOptionCard(
                     title: "Payment Link",
                     description:
                         "Create a payment link, for fast and secure transaction",
                     imagePath: "assets/png/paymentlink 1.png",
-                    onTap: () {
-                      //  payment link tap
-                    },
+                    onTap: () {},
                   ),
                   PaymentOptionCard(
                     title: "HelloMe Money Friends",
                     description:
                         "Send money to your friends on HelloMe Money using tags",
                     imagePath: "assets/png/people 1.png",
-                    onTap: () {
-                      //  friends payment tap
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),

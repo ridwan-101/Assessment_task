@@ -48,7 +48,7 @@ class CurrencyIconWidget extends StatelessWidget {
       case 'EUROPE':
         return 'assets/png/eruope.png';
       default:
-        return 'assets/png/ukicon.png'; // Default fallback
+        return 'assets/png/ukicon.png';
     }
   }
 }

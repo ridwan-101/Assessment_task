@@ -84,7 +84,7 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                               ),
                             ],
                           ),
-                          // const SizedBox(height: 12),
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -120,7 +120,7 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                     ),
 
                     20.toColumnSpace(),
-                    // Recipient gets
+
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
@@ -182,7 +182,6 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                       ),
                     ),
 
-                    // Exchange Rate
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       child: Text(
@@ -194,7 +193,6 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                       ),
                     ),
 
-                    // Delivery Method
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
@@ -217,7 +215,7 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                       ),
                     ),
                     30.toColumnSpace(),
-                    // Fee Toggle
+
                     Row(
                       children: [
                         Expanded(
@@ -241,7 +239,7 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                     ),
 
                     30.toColumnSpace(),
-                    // Fee Breakdown
+
                     const Column(
                       children: [
                         Row(
@@ -300,7 +298,6 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
                       ],
                     ),
 
-                    // Use Promo Credit
                     30.toColumnSpace(),
                     ReusableButton(
                       onPressed: () {},
@@ -312,7 +309,6 @@ class _SendMoneyPageReceipentState extends State<SendMoneyPageReceipent> {
 
                     30.toColumnSpace(),
 
-                    // Next Button
                     ReusableButton(
                       onPressed: () {
                         Navigator.push(

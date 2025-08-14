@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellomoney/theme/app_theme.dart';
 
 class RecentTransactionsWidget extends StatelessWidget {
   final VoidCallback? onViewAllPressed;
@@ -15,14 +16,14 @@ class RecentTransactionsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Recent Transactions Header
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               showAllTransactions ? 'All Transactions' : 'Recent Transactions',
-              style: const TextStyle(
-                color: Color(0xFF1E293B),
+              style: TextStyle(
+                color: AppTheme.slateDarkColor,
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
@@ -35,7 +36,7 @@ class RecentTransactionsWidget extends StatelessWidget {
                     const Text(
                       'View all',
                       style: TextStyle(
-                        color: Color(0xFF3B82F6),
+                        color: AppTheme.blueLightColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -43,7 +44,7 @@ class RecentTransactionsWidget extends StatelessWidget {
                     const SizedBox(width: 4),
                     const Icon(
                       Icons.arrow_forward,
-                      color: Color(0xFF3B82F6),
+                      color: AppTheme.blueLightColor,
                       size: 16,
                     ),
                   ],
@@ -54,7 +55,7 @@ class RecentTransactionsWidget extends StatelessWidget {
 
         const SizedBox(height: 16),
 
-        // Transaction List with ScrollView
+
         if (showAllTransactions)
           Column(
             children: List.generate(_getAllTransactions().length, (index) {
@@ -112,7 +113,7 @@ class RecentTransactionsWidget extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.1),
+                                color: AppTheme.greyTransparent10,
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: iconColor, size: 24),
@@ -161,7 +162,7 @@ class RecentTransactionsWidget extends StatelessWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF10B981).withOpacity(0.1),
+                    color: AppTheme.greenTransparent10,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(

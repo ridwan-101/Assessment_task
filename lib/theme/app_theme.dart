@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Color palette
   static const Color primaryColor = Color(0xFF05244C);
   static const Color secondaryColor = Color(0xFF036BDD);
   static const Color accentColor = Color(0xFFFF4081);
@@ -12,7 +11,31 @@ class AppTheme {
   static const Color textSecondaryColor = Color(0xFF757575);
   static const Color dividerColor = Color(0xFFBDBDBD);
 
-  // Light theme
+  static const Color overlayColor = Color(0x80000000);
+  static const Color shadowColor = Color(0x1A000000);
+  static const Color greyLightColor = Color(0xFFF3F4F6);
+  static const Color greyMediumColor = Color(0xFF9CA3AF);
+  static const Color greyDarkColor = Color(0xFF6B7280);
+  static const Color blueLightColor = Color(0xFF3B82F6);
+  static const Color blueDarkColor = Color(0xFF1E40AF);
+  static const Color slateLightColor = Color(0xFF64748B);
+  static const Color slateDarkColor = Color(0xFF1E293B);
+  static const Color whiteTransparent30 = Color(0x4DFFFFFF);
+  static const Color whiteTransparent20 = Color(0x33FFFFFF);
+  static const Color blueTransparent30 = Color(0x4D3B82F6);
+  static const Color greyTransparent10 = Color(0x1A9CA3AF);
+  static const Color greenTransparent10 = Color(0x1A10B981);
+  static const Color successColor = Color(0xFF10B981);
+  static const Color errorRedColor = Color(0xFFEF4444);
+  static const Color warningColor = Color(0xFF27BE69);
+  static const Color slateGrayColor = Color(0xFF667085);
+  static const Color darkGrayColor = Color(0xFF344054);
+  static const Color lightBlueColor = Color(0xFF77B7FD);
+  static const Color lightGrayColor = Color(0xFFE2E8F0);
+  static const Color borderGrayColor = Color(0xFFD0D5DD);
+  static const Color darkBlueColor = Color(0xFF222B45);
+  static const Color lightGrayBackgroundColor = Color(0xFFF2F4F7);
+
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,

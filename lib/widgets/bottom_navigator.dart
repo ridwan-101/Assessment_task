@@ -5,6 +5,8 @@ import 'package:hellomoney/screens/dashboard_page.dart';
 import 'package:hellomoney/widgets/recent_transactions_widget.dart';
 import 'package:hellomoney/widgets/app_tour_manager.dart';
 import 'package:hellomoney/screens/send_money_page.dart';
+import 'package:hellomoney/theme/app_theme.dart';
+import 'package:hellomoney/widgets/extension.dart';
 
 class BottomBarView extends StatefulWidget {
   const BottomBarView({super.key});
@@ -13,7 +15,6 @@ class BottomBarView extends StatefulWidget {
   State<BottomBarView> createState() => _BottomBarViewState();
 }
 
-/// Class handling bottom bar of the application
 class _BottomBarViewState extends State<BottomBarView> {
   int currentTab = 0;
   Widget currentScreen = const DashboardPage();
@@ -45,7 +46,6 @@ class _BottomBarViewState extends State<BottomBarView> {
             isTourActive = false;
             currentTourStep = 0;
           });
-          // Ensure dashboard is visible after tour completion
           Navigator.of(context).popUntil((route) => route.isFirst);
         }
       },
@@ -62,7 +62,6 @@ class _BottomBarViewState extends State<BottomBarView> {
           isTourActive = false;
           currentTourStep = 0;
         });
-        // Ensure dashboard is visible after tour close
         Navigator.of(context).popUntil((route) => route.isFirst);
       },
     );
@@ -73,10 +72,9 @@ class _BottomBarViewState extends State<BottomBarView> {
     return Scaffold(
       body: currentScreen,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF3B82F6),
+        backgroundColor: AppTheme.blueLightColor,
         shape: const CircleBorder(),
         onPressed: () {
-          // Navigate to send money page
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const SendMoneyPage()),
@@ -99,7 +97,6 @@ class _BottomBarViewState extends State<BottomBarView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Left side - First two items
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -110,7 +107,7 @@ class _BottomBarViewState extends State<BottomBarView> {
                       'Dashboard',
                       const DashboardPage(),
                     ),
-                    const SizedBox(width: 15),
+                    15.toRowSpace(),
                     bottomDetails(
                       'assets/svg/transactionicon.svg',
                       1,
@@ -120,9 +117,7 @@ class _BottomBarViewState extends State<BottomBarView> {
                   ],
                 ),
               ),
-              // Center space for floating action button
-              SizedBox(width: 60),
-              // Right side - Last two items
+              60.toRowSpace(),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -133,7 +128,7 @@ class _BottomBarViewState extends State<BottomBarView> {
                       'Settings',
                       const SettingsView(),
                     ),
-                    const SizedBox(width: 15),
+                    15.toRowSpace(),
                     bottomDetails(
                       'assets/svg/profileicon.svg',
                       3,
@@ -150,7 +145,6 @@ class _BottomBarViewState extends State<BottomBarView> {
     );
   }
 
-  // Bottom bar details function
   Widget bottomDetails(
     String iconPath,
     int index,
@@ -174,8 +168,8 @@ class _BottomBarViewState extends State<BottomBarView> {
             width: 30.w,
             colorFilter: ColorFilter.mode(
               currentTab == index
-                  ? const Color(0xFF1E40AF)
-                  : Colors.grey.shade400,
+                  ? AppTheme.blueDarkColor
+                  : AppTheme.greyMediumColor,
               BlendMode.srcIn,
             ),
           ),
@@ -186,8 +180,8 @@ class _BottomBarViewState extends State<BottomBarView> {
               fontWeight: FontWeight.w400,
               color:
                   currentTab == index
-                      ? const Color(0xFF1E40AF)
-                      : Colors.grey.shade400,
+                      ? AppTheme.blueDarkColor
+                      : AppTheme.greyMediumColor,
             ),
           ),
         ],
@@ -196,16 +190,15 @@ class _BottomBarViewState extends State<BottomBarView> {
   }
 }
 
-// Placeholder screens with better naming
 class TransactionView extends StatelessWidget {
   const TransactionView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5F9),
+      backgroundColor: AppTheme.backgroundColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF036BDD),
+        backgroundColor: AppTheme.secondaryColor,
         elevation: 0,
         title: const Text(
           'Transactions',
@@ -221,9 +214,9 @@ class TransactionView extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            const SizedBox(height: 16),
+            16.toColumnSpace(),
             const RecentTransactionsWidget(showAllTransactions: true),
-            const SizedBox(height: 100), // Space for bottom navigation
+            100.toColumnSpace(),
           ],
         ),
       ),

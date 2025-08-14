@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <bitmap android:gravity="fill" android:src="@drawable/background"/>
+        <shape>
+            <gradient
+                android:angle="135"
+                android:startColor="#036BDD"
+                android:endColor="#1E88FC"
+                android:type="linear" />
+        </shape>
     </item>
-    <item>
-        <bitmap android:gravity="center" android:src="@drawable/splash"/>
+    
+    <item
+        android:width="120dp"
+        android:height="120dp"
+        android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+    
+    <item
+        android:width="80dp"
+        android:height="80dp"
+        android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="#036BDD" />
+        </shape>
+    </item>
+    
+    <item
+        android:width="40dp"
+        android:height="40dp"
+        android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" />
+        </shape>
     </item>
 </layer-list>

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hellomoney/theme/app_theme.dart';
+import 'package:hellomoney/widgets/extension.dart';
 
 class AppTourWidget extends StatelessWidget {
   final String title;
@@ -26,15 +28,14 @@ class AppTourWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:
-          280.w, // Slightly smaller width to ensure it fits within screen bounds
+      width: 280.w,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: AppTheme.shadowColor,
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -44,7 +45,6 @@ class AppTourWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header with close button
           Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,7 +55,7 @@ class AppTourWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xFF1E293B),
+                    color: AppTheme.slateDarkColor,
                     decoration: TextDecoration.none,
                   ),
                 ),
@@ -65,26 +65,24 @@ class AppTourWidget extends StatelessWidget {
                 child: Icon(
                   Icons.close,
                   size: 20.sp,
-                  color: Colors.grey.shade600,
+                  color: AppTheme.greyDarkColor,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 12.h),
-          // Content
+          12.toColumnSpace(),
           Text(
             content,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
-              color: const Color(0xFF64748B),
+              color: AppTheme.slateLightColor,
               height: 1.5,
               decoration: TextDecoration.none,
             ),
             textAlign: TextAlign.left,
           ),
-          SizedBox(height: 16.h),
-          // Action buttons
+          16.toColumnSpace(),
           Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -98,7 +96,7 @@ class AppTourWidget extends StatelessWidget {
                       vertical: 8.h,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: AppTheme.greyLightColor,
                       borderRadius: BorderRadius.circular(6.r),
                     ),
                     child: Text(
@@ -106,13 +104,13 @@ class AppTourWidget extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF64748B),
+                        color: AppTheme.slateLightColor,
                         decoration: TextDecoration.none,
                       ),
                     ),
                   ),
                 ),
-              if (showPrevButton && showNextButton) SizedBox(width: 12.w),
+              if (showPrevButton && showNextButton) 12.toRowSpace(),
               if (showNextButton)
                 GestureDetector(
                   onTap: onNext,
@@ -122,7 +120,7 @@ class AppTourWidget extends StatelessWidget {
                       vertical: 8.h,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF3B82F6),
+                      color: AppTheme.blueLightColor,
                       borderRadius: BorderRadius.circular(6.r),
                     ),
                     child: Text(

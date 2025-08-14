@@ -16,19 +16,60 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="LaunchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Dq-wcI"/>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4"></imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Dq-wcI">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" red="0.012" green="0.420" blue="0.867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
+                                <rect key="frame" x="145" y="372" width="100" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icon-bg">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="w1"/>
+                                            <constraint firstAttribute="height" constant="100" id="h1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icon-middle">
+                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                        <color key="backgroundColor" red="0.012" green="0.420" blue="0.867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="w2"/>
+                                            <constraint firstAttribute="height" constant="80" id="h2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icon-center">
+                                        <rect key="frame" x="30" y="30" width="40" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="w3"/>
+                                            <constraint firstAttribute="height" constant="40" id="h3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="icon-bg" firstAttribute="centerX" secondItem="YRO-k0-Ey4" secondAttribute="centerX" id="c1"/>
+                                    <constraint firstItem="icon-bg" firstAttribute="centerY" secondItem="YRO-k0-Ey4" secondAttribute="centerY" id="c2"/>
+                                    <constraint firstItem="icon-middle" firstAttribute="centerX" secondItem="YRO-k0-Ey4" secondAttribute="centerX" id="c3"/>
+                                    <constraint firstItem="icon-middle" firstAttribute="centerY" secondItem="YRO-k0-Ey4" secondAttribute="centerY" id="c4"/>
+                                    <constraint firstItem="icon-center" firstAttribute="centerX" secondItem="YRO-k0-Ey4" secondAttribute="centerX" id="c5"/>
+                                    <constraint firstItem="icon-center" firstAttribute="centerY" secondItem="YRO-k0-Ey4" secondAttribute="centerY" id="c6"/>
+                                    <constraint firstAttribute="width" constant="100" id="w"/>
+                                    <constraint firstAttribute="height" constant="100" id="h"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.012" green="0.420" blue="0.867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="3T2-ad-Qdv"/>
+                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3T2-ad-Qdv"/>
                             <constraint firstItem="tWc-Dq-wcI" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="RPx-PI-7Xg"/>
                             <constraint firstItem="tWc-Dq-wcI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SdS-ul-q2q"/>
                             <constraint firstAttribute="trailing" secondItem="tWc-Dq-wcI" secondAttribute="trailing" id="Swv-Gf-Rwn"/>
                             <constraint firstAttribute="trailing" secondItem="YRO-k0-Ey4" secondAttribute="trailing" id="TQA-XW-tRk"/>
-                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="duK-uY-Gun"/>
+                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="duK-uY-Gun"/>
                             <constraint firstItem="tWc-Dq-wcI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="kV7-tw-vXt"/>
-                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xPn-NY-SIU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,8 +78,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LaunchImage" width="162" height="133"/>
-        <image name="LaunchBackground" width="1" height="1"/>
-    </resources>
 </document>

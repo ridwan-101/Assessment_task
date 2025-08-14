@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellomoney/theme/app_theme.dart';
 
 class ReusableButton extends StatelessWidget {
   final String text;
@@ -16,7 +17,7 @@ class ReusableButton extends StatelessWidget {
     super.key,
     required this.text,
     this.onPressed,
-    this.backgroundColor = const Color(0xFF036BDD),
+    this.backgroundColor = AppTheme.secondaryColor,
     this.textColor = Colors.white,
     this.width,
     this.height = 56,
@@ -42,32 +43,30 @@ class ReusableButton extends StatelessWidget {
           ),
           elevation: 0,
         ),
-        child: isLoading
-            ? const SizedBox(
-                width: 20,
-                height: 20,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-              )
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (icon != null) ...[
-                    icon!,
-                    const SizedBox(width: 8),
-                  ],
-                  Text(
-                    text,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: textColor,
-                    ),
+        child:
+            isLoading
+                ? const SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                   ),
-                ],
-              ),
+                )
+                : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (icon != null) ...[icon!, const SizedBox(width: 8)],
+                    Text(
+                      text,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: textColor,
+                      ),
+                    ),
+                  ],
+                ),
       ),
     );
   }

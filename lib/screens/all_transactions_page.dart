@@ -30,7 +30,7 @@ class AllTransactionsPage extends StatelessWidget {
           children: [
             const SizedBox(height: 16),
             const RecentTransactionsWidget(showAllTransactions: true),
-            const SizedBox(height: 100), // Space for bottom navigation
+            const SizedBox(height: 100),
           ],
         ),
       ),

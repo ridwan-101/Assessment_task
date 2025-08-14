@@ -29,7 +29,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 24),
 
-                // Add new Beneficiary
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 24),
                   padding: const EdgeInsets.all(20),
@@ -67,7 +66,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Search Bar
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 24),
                   padding: const EdgeInsets.symmetric(
@@ -96,7 +94,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Beneficiaries List
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -140,7 +137,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
                   ),
                 ),
 
-                // View Saved Beneficiaries
                 Container(
                   padding: const EdgeInsets.all(24),
                   child: const Text(
@@ -174,7 +170,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Avatar
           Container(
             width: 48,
             height: 48,
@@ -195,7 +190,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
           ),
           const SizedBox(width: 16),
 
-          // Name and Account Info
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -220,7 +214,6 @@ class ChooseBeneficiaryPage extends StatelessWidget {
             ),
           ),
 
-          // Flag Icon
           flagIcon,
         ],
       ),
@@ -232,7 +225,7 @@ class ChooseBeneficiaryPage extends StatelessWidget {
       currencyCode: 'NGN',
       width: 32,
       height: 32,
-      borderRadius: 16, // Makes it circular
+      borderRadius: 16,
     );
   }
 
@@ -241,25 +234,25 @@ class ChooseBeneficiaryPage extends StatelessWidget {
       currencyCode: 'GBP',
       width: 32,
       height: 32,
-      borderRadius: 16, // Makes it circular
+      borderRadius: 16,
     );
   }
 
   Widget _buildUSFlag() {
     return CurrencyIconWidget(
-      currencyCode: 'EUR', // Using Europe instead of US
+      currencyCode: 'EUR',
       width: 32,
       height: 32,
-      borderRadius: 16, // Makes it circular
+      borderRadius: 16,
     );
   }
 
   Widget _buildCanadianFlag() {
     return CurrencyIconWidget(
-      currencyCode: 'NGN', // Using Nigeria instead of Canada
+      currencyCode: 'NGN',
       width: 32,
       height: 32,
-      borderRadius: 16, // Makes it circular
+      borderRadius: 16,
     );
   }
 }

@@ -1,43 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:hellomoney/widgets/app_tour_widget.dart';
+import 'package:hellomoney/theme/app_theme.dart';
 
 class AppTourManager {
   static const List<Map<String, String>> tourSteps = [
     {
       'title': 'Send',
-      'content': 'Tap to send money to anyone, instantly.\nFast and secure — whether local or international.',
+      'content':
+          'Tap to send money to anyone, instantly.\nFast and secure — whether local or international.',
     },
     {
       'title': 'Account Details',
-      'content': 'View your account number and banking info for sending or receiving funds.\nShare details easily to get paid.',
+      'content':
+          'View your account number and banking info for sending or receiving funds.\nShare details easily to get paid.',
     },
     {
       'title': 'Add Funds',
-      'content': 'Top up your account balance from a linked card or bank.\nQuick and seamless funding.',
+      'content':
+          'Top up your account balance from a linked card or bank.\nQuick and seamless funding.',
     },
     {
       'title': 'Conversion',
-      'content': 'Exchange your funds into other currencies with ease.\nReal-time rates, no stress.',
+      'content':
+          'Exchange your funds into other currencies with ease.\nReal-time rates, no stress.',
     },
     {
       'title': 'More',
-      'content': 'Explore additional features and settings.\nEverything else you might need, in one place.',
+      'content':
+          'Explore additional features and settings.\nEverything else you might need, in one place.',
     },
     {
       'title': 'Settings',
-      'content': 'Manage your account.\nTap here to adjust preferences, change security settings, or manage notifications.',
+      'content':
+          'Manage your account.\nTap here to adjust preferences, change security settings, or manage notifications.',
     },
     {
       'title': 'Transactions',
-      'content': 'Keep track of your money\nHere you can view all your transaction history, transfers, top-ups, conversions, and more.',
+      'content':
+          'Keep track of your money\nHere you can view all your transaction history, transfers, top-ups, conversions, and more.',
     },
     {
       'title': 'Profile',
-      'content': 'Your personal info\nReview and update your name, email, ID documents, and other personal details.',
+      'content':
+          'Your personal info\nReview and update your name, email, ID documents, and other personal details.',
     },
   ];
 
-    static void showTourOverlay(BuildContext context, int currentStep, {
+  static void showTourOverlay(
+    BuildContext context,
+    int currentStep, {
     required VoidCallback onNext,
     required VoidCallback onPrev,
     required VoidCallback onClose,
@@ -46,19 +57,17 @@ class AppTourManager {
     final isFirstStep = currentStep == 0;
     final isLastStep = currentStep == tourSteps.length - 1;
 
-    // Close any existing dialogs first
     Navigator.of(context).popUntil((route) => route.isFirst);
 
     showDialog(
       context: context,
       barrierDismissible: false,
-      barrierColor: Colors.black.withOpacity(0.5),
+      barrierColor: AppTheme.overlayColor,
       builder: (BuildContext context) {
         return WillPopScope(
-          onWillPop: () async => false, // Prevent back button from closing dialog
+          onWillPop: () async => false,
           child: Stack(
             children: [
-              // Tour tooltip
               Positioned(
                 top: _getTooltipPosition(currentStep).dy,
                 left: _getTooltipPosition(currentStep).dx,
@@ -66,16 +75,19 @@ class AppTourManager {
                   title: step['title']!,
                   content: step['content']!,
                   onNext: () {
-                    Navigator.of(context).pop(); // Close current dialog
-                    onNext(); // Proceed to next step
+                    Navigator.of(context).pop();
+                    onNext();
                   },
-                  onPrev: isFirstStep ? null : () {
-                    Navigator.of(context).pop(); // Close current dialog
-                    onPrev(); // Go to previous step
-                  },
+                  onPrev:
+                      isFirstStep
+                          ? null
+                          : () {
+                            Navigator.of(context).pop();
+                            onPrev();
+                          },
                   onClose: () {
-                    Navigator.of(context).pop(); // Close current dialog
-                    onClose(); // Handle close
+                    Navigator.of(context).pop();
+                    onClose();
                   },
                   showPrevButton: !isFirstStep,
                   showNextButton: true,
@@ -90,23 +102,22 @@ class AppTourManager {
   }
 
   static Offset _getTooltipPosition(int step) {
-    // These positions are adjusted to keep tooltips within app scope
     switch (step) {
-      case 0: // Send (FAB) - Position above the FAB
+      case 0:
         return const Offset(70, 520);
-      case 1: // Account Details - Position below the button
+      case 1:
         return const Offset(20, 280);
-      case 2: // Add Funds - Position below the button
+      case 2:
         return const Offset(70, 280);
-      case 3: // Conversion - Position below the button
+      case 3:
         return const Offset(120, 280);
-      case 4: // More - Position below the button
+      case 4:
         return const Offset(170, 280);
-      case 5: // Settings (Bottom Nav) - Position above the nav bar
+      case 5:
         return const Offset(20, 580);
-      case 6: // Transactions (Bottom Nav) - Position above the nav bar
+      case 6:
         return const Offset(70, 580);
-      case 7: // Profile (Bottom Nav) - Position above the nav bar
+      case 7:
         return const Offset(170, 580);
       default:
         return const Offset(70, 300);

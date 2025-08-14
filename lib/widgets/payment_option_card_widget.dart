@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellomoney/theme/app_theme.dart';
 
 class PaymentOptionCard extends StatelessWidget {
   final String title;
@@ -18,7 +19,7 @@ class PaymentOptionCard extends StatelessWidget {
     required this.description,
     required this.imagePath,
     this.backgroundColor = Colors.white,
-    this.borderColor = const Color(0xFF036BDD),
+    this.borderColor = AppTheme.secondaryColor,
     this.onTap,
     this.width = 188,
     this.height = 255,
@@ -37,7 +38,7 @@ class PaymentOptionCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: AppTheme.greyTransparent10,
               spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(0, 2),
@@ -49,15 +50,13 @@ class PaymentOptionCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image container
-              Container(
+              SizedBox(
                 height: 60,
                 width: 60,
                 child: Image.asset(imagePath, fit: BoxFit.contain),
               ),
               const SizedBox(height: 16),
 
-              // Title with subtitle
               Column(
                 children: [
                   Text(
@@ -65,7 +64,7 @@ class PaymentOptionCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF05244C),
+                      color: AppTheme.primaryColor,
                     ),
                     textAlign: TextAlign.center,
                   ),

@@ -40,25 +40,20 @@ class _AppLauncherState extends State<AppLauncher> {
   @override
   void initState() {
     super.initState();
-    // Start the tour after the widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _startAppTour();
     });
   }
 
   void _startAppTour() {
-    // Show the first tour step
     AppTourManager.showTourOverlay(
       context,
-      0, // Start with first step
+      0,
       onNext: () {
         _showNextTourStep(1);
       },
-      onPrev: () {
-        // No previous action on first step
-      },
+      onPrev: () {},
       onClose: () {
-        // Tour closed, ensure dashboard is visible
         _ensureDashboardVisible();
       },
     );
@@ -76,18 +71,15 @@ class _AppLauncherState extends State<AppLauncher> {
           _showNextTourStep(step - 1);
         },
         onClose: () {
-          // Tour closed, ensure dashboard is visible
           _ensureDashboardVisible();
         },
       );
     } else {
-      // Tour completed, ensure dashboard is visible
       _ensureDashboardVisible();
     }
   }
 
   void _ensureDashboardVisible() {
-    // Ensure all dialogs are closed and dashboard is visible
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 

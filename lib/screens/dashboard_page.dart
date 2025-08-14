@@ -6,6 +6,7 @@ import 'package:hellomoney/screens/all_transactions_page.dart';
 import 'package:hellomoney/widgets/currency_icon_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart' as cs;
 import 'package:hellomoney/widgets/app_tour_manager.dart';
+import 'package:hellomoney/theme/app_theme.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -51,7 +52,7 @@ class _DashboardPageState extends State<DashboardPage> {
             isTourActive = false;
             currentTourStep = 0;
           });
-          // Ensure dashboard is visible after tour completion
+
           Navigator.of(context).popUntil((route) => route.isFirst);
         }
       },
@@ -68,7 +69,7 @@ class _DashboardPageState extends State<DashboardPage> {
           isTourActive = false;
           currentTourStep = 0;
         });
-        // Ensure dashboard is visible after tour close
+
         Navigator.of(context).popUntil((route) => route.isFirst);
       },
     );
@@ -77,19 +78,18 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5F9),
+      backgroundColor: AppTheme.backgroundColor,
       body: Stack(
         children: [
           Column(
             children: [
-              // Fixed Header Section
               Container(
                 height: 380,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Color(0xFF036BDD), Color(0xFF1E88FC)],
+                    colors: [AppTheme.secondaryColor, AppTheme.blueLightColor],
                   ),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(24),
@@ -101,7 +101,6 @@ class _DashboardPageState extends State<DashboardPage> {
                     padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        // Top Row
                         Row(
                           children: [
                             Container(
@@ -116,16 +115,16 @@ class _DashboardPageState extends State<DashboardPage> {
                               ),
                               child: ClipOval(
                                 child: Container(
-                                  color: Colors.grey[300],
+                                  color: AppTheme.greyLightColor,
                                   child: const Icon(
                                     Icons.person,
-                                    color: Colors.grey,
+                                    color: AppTheme.greyMediumColor,
                                     size: 22,
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 12),
+                            12.toRowSpace(),
                             const Expanded(
                               child: Text(
                                 'Welcome Saito',
@@ -160,7 +159,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 ),
                                 child: const Icon(
                                   Icons.help_outline,
-                                  color: Color(0xFF036BDD),
+                                  color: AppTheme.secondaryColor,
                                   size: 20,
                                 ),
                               ),
@@ -170,7 +169,6 @@ class _DashboardPageState extends State<DashboardPage> {
 
                         const SizedBox(height: 14),
 
-                        // Balance Carousel Section
                         cs.CarouselSlider(
                           options: cs.CarouselOptions(
                             height: 100,
@@ -190,7 +188,6 @@ class _DashboardPageState extends State<DashboardPage> {
                                   builder: (BuildContext context) {
                                     return Column(
                                       children: [
-                                        // Balance section
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -198,7 +195,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                             CurrencyIconWidget(
                                               currencyCode: balance['currency'],
                                             ),
-                                            const SizedBox(width: 6),
+                                            6.toRowSpace(),
                                             Text(
                                               '${balance['currency']} Balance',
                                               style: const TextStyle(
@@ -207,7 +204,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 fontWeight: FontWeight.w300,
                                               ),
                                             ),
-                                            const SizedBox(width: 6),
+                                            6.toRowSpace(),
                                             const Icon(
                                               Icons.visibility_off_outlined,
                                               color: Colors.white,
@@ -216,9 +213,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                           ],
                                         ),
 
-                                        const SizedBox(height: 14),
+                                        14.toColumnSpace(),
 
-                                        // Balance amount
                                         Text(
                                           '${balance['symbol']}${balance['amount']}',
                                           style: const TextStyle(
@@ -234,8 +230,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               }).toList(),
                         ),
 
-                        // Carousel Indicator Dots
-                        const SizedBox(height: 16),
+                        16.toColumnSpace(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(
@@ -249,7 +244,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 color:
                                     currentBalanceIndex == index
                                         ? Colors.white
-                                        : Colors.white.withOpacity(0.3),
+                                        : AppTheme.whiteTransparent30,
                               ),
                             ),
                           ),
@@ -257,7 +252,6 @@ class _DashboardPageState extends State<DashboardPage> {
 
                         const SizedBox(height: 44),
 
-                        // Action buttons
                         Row(
                           children: [
                             Expanded(
@@ -282,10 +276,10 @@ class _DashboardPageState extends State<DashboardPage> {
                               height: 44,
                               width: 44,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: AppTheme.whiteTransparent20,
                                 borderRadius: BorderRadius.circular(22),
                                 border: Border.all(
-                                  color: Colors.white.withOpacity(0.3),
+                                  color: AppTheme.whiteTransparent30,
                                 ),
                               ),
                               child: const Icon(
@@ -304,7 +298,6 @@ class _DashboardPageState extends State<DashboardPage> {
 
               20.toColumnSpace(),
 
-              // Banner Carousel Section (moved below balance)
               cs.CarouselSlider(
                 options: cs.CarouselOptions(
                   height: 140,
@@ -341,12 +334,11 @@ class _DashboardPageState extends State<DashboardPage> {
                     }).toList(),
               ),
 
-              // Banner Carousel Indicator Dots
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                  3, // Number of banner items
+                  3,
                   (index) => Container(
                     width: 8,
                     height: 8,
@@ -355,14 +347,13 @@ class _DashboardPageState extends State<DashboardPage> {
                       shape: BoxShape.circle,
                       color:
                           currentBannerIndex == index
-                              ? const Color(0xFF3B82F6)
-                              : const Color(0xFF3B82F6).withOpacity(0.3),
+                              ? AppTheme.blueLightColor
+                              : AppTheme.blueTransparent30,
                     ),
                   ),
                 ),
               ),
 
-              // Scrollable Transactions Section
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(24),
@@ -371,7 +362,6 @@ class _DashboardPageState extends State<DashboardPage> {
                     children: [
                       const SizedBox(height: 32),
 
-                      // Recent Transactions Widget
                       Expanded(
                         child: RecentTransactionsWidget(
                           onViewAllPressed: () {
@@ -392,7 +382,6 @@ class _DashboardPageState extends State<DashboardPage> {
             ],
           ),
 
-          // Floating chat button
           Positioned(
             bottom: 24,
             right: 24,
@@ -400,11 +389,11 @@ class _DashboardPageState extends State<DashboardPage> {
               width: 56,
               height: 56,
               decoration: const BoxDecoration(
-                color: Color(0xFF1E40AF),
+                color: AppTheme.blueDarkColor,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0x1A000000),
+                    color: AppTheme.shadowColor,
                     blurRadius: 8,
                     offset: Offset(0, 4),
                   ),
@@ -429,9 +418,9 @@ class _DashboardPageState extends State<DashboardPage> {
     return Container(
       height: 44,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: AppTheme.whiteTransparent20,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: Colors.white.withOpacity(0.3)),
+        border: Border.all(color: AppTheme.whiteTransparent30),
       ),
       child: Center(
         child: Row(
